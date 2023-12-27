@@ -1,31 +1,27 @@
 name: CI Pipeline
 
 on: 
-    wokflow_dispatch:
-
-on: 
     push: 
         branches: [ main ]
     pull_request: 
         branches: [ main ]
-    
-    jobs:
-        ci_uploaders:
-            name: CI Pipeline
-            runs-on: ubuntu-latest
-            steps:
-                - uses: actions/checkout@v2
+jobs:
+    ci_uploaders:
+        name: CI Pipeline
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
 
-                - name: Install dependencies
-                  run: npm install
+            - name: Install dependencies
+              run: npm install
 
-                - name: Lint the codebase
-                  if: always()
-                  run: npm run lint
+            - name: Lint the codebase
+              if: always()
+              run: npm run lint
 
-                - name: Test out code
-                  if: always()
-                  run: npm run test
+            - name: Test out code
+              if: always()
+              run: npm run test
 
-                - name: Build project
-                  run: npm run build
+            - name: Build project
+              run: npm run build
