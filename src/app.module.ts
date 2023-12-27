@@ -4,7 +4,10 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Product, ProductSchema } from './entities/product.entity';
 import { Promo, PromoSchema } from './entities/promo.entity';
-import { DiscountsTask, DiscountsTaskSchema } from './entities/discounts-task.entity';
+import {
+  DiscountsTask,
+  DiscountsTaskSchema,
+} from './entities/discounts-task.entity';
 
 @Module({
   imports: [
@@ -12,8 +15,8 @@ import { DiscountsTask, DiscountsTaskSchema } from './entities/discounts-task.en
     MongooseModule.forFeature([
       { name: Product.name, schema: ProductSchema },
       { name: Promo.name, schema: PromoSchema },
-      { name: DiscountsTask.name, schema: DiscountsTaskSchema}
-    ])
+      { name: DiscountsTask.name, schema: DiscountsTaskSchema },
+    ]),
   ],
   controllers: [AppController],
   providers: [AppService],
