@@ -3,7 +3,7 @@ import { HydratedDocument } from 'mongoose';
 
 export type ProductDocument = HydratedDocument<Product>;
 
-@Schema({ collection: 'Products', timestamps: false })
+@Schema({ collection: 'Products', timestamps: false, _id: false })
 export class Product {
   @Prop({
     type: Number,
@@ -12,9 +12,14 @@ export class Product {
   id: number;
 
   @Prop({
+    type: String,
+  })
+  offer_id: string;
+
+  @Prop({
     type: Number,
   })
-  price: number;
+  price?: number;
 
   @Prop({
     type: Number,
@@ -30,7 +35,7 @@ export class Product {
   @Prop({
     type: String,
   })
-  add_mode: string;
+  add_mode?: string;
 
   @Prop({
     type: Number,
@@ -48,12 +53,12 @@ export class Product {
     type: Boolean,
     default: false,
   })
-  is_action: boolean;
+  is_action?: boolean;
 
   @Prop({
-    type: Date,
+    type: String,
   })
-  date_day_promo: Date;
+  date_day_promo?: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

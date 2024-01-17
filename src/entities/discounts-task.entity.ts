@@ -3,7 +3,7 @@ import { HydratedDocument } from 'mongoose';
 
 export type DiscountsTaskDocument = HydratedDocument<DiscountsTask>;
 
-@Schema({ collection: 'DiscountsTasks', timestamps: false })
+@Schema({ collection: 'DiscountsTasks', timestamps: false, _id: false })
 export class DiscountsTask {
   @Prop({
     type: Number,
@@ -12,19 +12,19 @@ export class DiscountsTask {
   id: number;
 
   @Prop({
-    type: Date,
+    type: String,
   })
-  created_at: Date;
+  created_at: string;
 
   @Prop({
-    type: Date,
+    type: String,
   })
-  end_at: Date;
+  end_at: string;
 
   @Prop({
-    type: Date,
+    type: String,
   })
-  edited_till: Date;
+  edited_till: string;
 
   @Prop({
     type: String,
@@ -97,9 +97,9 @@ export class DiscountsTask {
   is_damaged: boolean;
 
   @Prop({
-    type: Number,
+    type: String,
   })
-  moderated_at: Date;
+  moderated_at: string;
 
   @Prop({
     type: Number,
@@ -164,7 +164,7 @@ export class DiscountsTask {
   @Prop({
     type: Number,
   })
-  requested_quantity_msx: number;
+  requested_quantity_max: number;
 
   @Prop({
     type: Number,
