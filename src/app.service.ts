@@ -664,13 +664,7 @@ export class AppService {
       const currentDiscountsTask = await this.getDiscountsTaskById(
         currentDiscountsTaskId,
       );
-      console.log(currentDiscountsTask);
-      console.log(
-        [StatusEnum.NEW, StatusEnum.SEEN].includes(currentDiscountsTask.status),
-      );
-      console.log([StatusEnum.NEW, StatusEnum.SEEN]);
-      console.log(StatusEnum[currentDiscountsTask.status]);
-
+      
       if (!currentDiscountsTask) {
         incorrectArrayDiscountsTasks.push({
           task_id: currentDiscountsTaskId,
